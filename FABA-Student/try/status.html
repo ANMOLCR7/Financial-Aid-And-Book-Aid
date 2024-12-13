@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Status</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .status {
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .pending {
+            background-color: #FFA500;
+        }
+
+        .approved {
+            background-color: #4CAF50;
+        }
+
+        .rejected {
+            background-color: #FF0000;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #333;
+            color: white;
+        }
+
+        canvas {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Financial Aid Application Status</h1>
+    </header>
+
+    <!-- Charts Section -->
+    <div class="container">
+        <h2>Overview</h2>
+        <canvas id="statusChart"></canvas>
+        <canvas id="amountChart"></canvas>
+    </div>
+
+    <!-- Status Table -->
+    <div class="container">
+        <h2>Your Application Status</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Application ID</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Date Submitted</th>
+                    <th>Status</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>FA-12345</td>
+                    <td>Tuition Fees</td>
+                    <td>$500</td>
+                    <td>2024-12-01</td>
+                    <td><span class="status pending">Pending</span></td>
+                    <td>Awaiting review</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>FA-12346</td>
+                    <td>Books</td>
+                    <td>$200</td>
+                    <td>2024-11-15</td>
+                    <td><span class="status approved">Approved</span></td>
+                    <td>Approved on 2024-11-20</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>FA-12347</td>
+                    <td>Other Expenses</td>
+                    <td>$100</td>
+                    <td>2024-11-10</td>
+                    <td><span class="status rejected">Rejected</span></td>
+                    <td>Incomplete documentation</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Financial & Book Aid System</p>
+    </footer>
+
+    <!-- JavaScript for Charts -->
+    <script>
+        // Data for Charts
+        const statusData = {
+            labels: ['Approved', 'Pending', 'Rejected'],
+            datasets: [{
+                label: 'Application Status',
+                data: [1, 1, 1], // Update with dynamic counts
+                backgroundColor: ['#4CAF50', '#FFA500', '#FF0000']
+            }]
+        };
+
+        const amountData = {
+            labels: ['Tuition Fees', 'Books', 'Other Expenses'],
+            datasets: [{
+                label: 'Amount Requested (USD)',
+                data: [500, 200, 100], // Update with dynamic amounts
+                backgroundColor: ['#6a5acd', '#4682b4', '#32cd32']
+            }]
+        };
+
+        // Configurations for Charts
+        const statusConfig = {
+            type: 'doughnut',
+            data: statusData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    },
+                    tooltip: {
+                        enabled: true
+                    }
+                }
+            }
+        };
+
+        const amountConfig = {
+            type: 'bar',
+            data: amountData,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    },
+                    tooltip: {
+                        enabled: true
+                    }
+                }
+            }
+        };
+
+        // Render Charts
+        const statusChart = new Chart(
+            document.getElementById('statusChart'),
+            statusConfig
+        );
+
+        const amountChart = new Chart(
+            document.getElementById('amountChart'),
+            amountConfig
+        );
+    </script>
+</body>
+</html>

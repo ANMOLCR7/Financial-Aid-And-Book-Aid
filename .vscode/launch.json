@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open user_index.html",
+            "file": "${workspaceFolder}/demo/vertical-menu/FABA Admin-Index.html",
+            "preLaunchTask": "build",
+            "webRoot": "${workspaceFolder}/demo/vertical-menu",
+            "url": "http://localhost:8080",
+            "sourceMaps": true
+        }
+    ]
+}

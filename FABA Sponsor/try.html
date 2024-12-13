@@ -1,0 +1,120 @@
+<link href="try.css" rel="stylesheet" >
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Financial Aid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Financial Aid</a></li>
+                <li><a href="#">Book Aid</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-container">
+            <div class="form-header">
+                <h2>Apply for Financial Aid</h2>
+                <p>Please fill out the application form below for financial assistance.</p>
+            </div>
+
+            <form action="#" method="POST" id="financialAidForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                    <span class="error-message" id="nameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentID">Student ID</label>
+                    <input type="text" id="studentID" name="studentID" placeholder="Enter your student ID" required>
+                    <span class="error-message" id="studentIDError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="aidType">Type of Aid</label>
+                    <select id="aidType" name="aidType" required>
+                        <option value="">Select aid type</option>
+                        <option value="Scholarship">Scholarship</option>
+                        <option value="Grant">Grant</option>
+                        <option value="Loan">Loan</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="financialNeed">Financial Need</label>
+                    <textarea id="financialNeed" name="financialNeed" rows="4" placeholder="Explain why you need financial aid" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="applicationDate">Date of Application</label>
+                    <input type="date" id="applicationDate" name="applicationDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="documents">Upload Supporting Documents</label>
+                    <input type="file" id="documents" name="documents[]" accept=".pdf,.docx,.jpg,.png" multiple required>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="terms" name="terms" required>
+                        I agree to the <a href="#">Terms and Conditions</a>
+                    </label>
+                    <span class="error-message" id="termsError"></span>
+                </div>
+
+                <div class="form-group submit-group">
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </div>
+            </form>
+
+            <div id="formProgressContainer">
+                <label>Form Progress</label>
+                <progress id="formProgress" value="0" max="100"></progress>
+            </div>
+        </section>
+    </main>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <h3>Confirm Your Application</h3>
+            <p>Are you sure you want to submit your application?</p>
+            <button id="confirmBtn">Yes, Submit</button>
+            <button id="cancelBtn">Cancel</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Financial Aid Portal</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

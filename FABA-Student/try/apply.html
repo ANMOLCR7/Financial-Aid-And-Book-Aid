@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Financial Aid</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .note {
+            font-size: 14px;
+            color: gray;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Apply for Financial Aid</h1>
+    </header>
+
+    <!-- Form Section -->
+    <div class="container">
+        <h2>Financial Aid Application</h2>
+        <form action="/submit-application" method="post">
+            <!-- Name -->
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <!-- Email -->
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+            <!-- Phone -->
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+            <!-- Financial Aid Reason -->
+            <label for="reason">Reason for Financial Aid</label>
+            <textarea id="reason" name="reason" placeholder="Explain why you need financial aid" required></textarea>
+
+            <!-- Category -->
+            <label for="category">Category</label>
+            <select id="category" name="category" required>
+                <option value="" disabled selected>Select a category</option>
+                <option value="tuition">Tuition Fees</option>
+                <option value="books">Books and Supplies</option>
+                <option value="other">Other Expenses</option>
+            </select>
+
+            <!-- Amount Requested -->
+            <label for="amount">Amount Requested</label>
+            <input type="number" id="amount" name="amount" placeholder="Enter the amount (in USD)" required>
+
+            <!-- Supporting Documents -->
+            <label for="documents">Upload Supporting Documents (PDF)</label>
+            <input type="file" id="documents" name="documents" accept="application/pdf" required>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Application</button>
+        </form>
+        <p class="note">Note: Please ensure all fields are filled out correctly before submitting your application.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Financial & Book Aid System</p>
+    </footer>
+</body>
+</html>
