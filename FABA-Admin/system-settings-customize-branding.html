@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize System Branding</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 130vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .content {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+        form {
+            text-align: left;
+            margin-top: 20px;
+        }
+        input[type="file"], input[type="color"], input[type="text"], button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .status {
+            margin-top: 20px;
+            background: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Customize System Branding</h1>
+        <p>Customize the visual elements of the system, including logos, colors, fonts, and overall theme.</p>
+
+        <!-- Branding Customization Form -->
+        <form action="/set-branding" method="POST" enctype="multipart/form-data">
+            <label for="logo-upload">Upload Logo:</label>
+            <input type="file" id="logo-upload" name="logo-upload" accept="image/*" required>
+
+            <label for="primary-color">Primary Color:</label>
+            <input type="color" id="primary-color" name="primary-color" value="#4CAF50" required>
+
+            <label for="secondary-color">Secondary Color:</label>
+            <input type="color" id="secondary-color" name="secondary-color" value="#007BFF" required>
+
+            <label for="font-family">Font Family:</label>
+            <input type="text" id="font-family" name="font-family" placeholder="Enter Font Family (e.g., Arial)" required>
+
+            <button type="submit">Save Branding</button>
+        </form>
+
+        <!-- Display Current Branding -->
+        <div class="status">
+            <h3>Current Branding</h3>
+            <p><strong>Logo:</strong> Current logo displayed here</p>
+            <p><strong>Primary Color:</strong> #4CAF50</p>
+            <p><strong>Secondary Color:</strong> #007BFF</p>
+            <p><strong>Font Family:</strong> Arial</p>
+        </div>
+
+        <a href="admin-settings.html">Back to Settings</a>
+    </div>
+</body>
+</html>

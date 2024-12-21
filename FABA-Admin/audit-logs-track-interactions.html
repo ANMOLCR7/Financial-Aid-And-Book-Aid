@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Student-Sponsor Interactions</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .content {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 900px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        .btn {
+            padding: 8px 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Track Student-Sponsor Interactions</h1>
+        <p>Monitor and log all interactions between students and sponsors to ensure transparency and foster trust.</p>
+
+        <!-- Interaction Log Table -->
+        <h3>Interaction Log</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Sponsor Name</th>
+                    <th>Interaction Type</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>XYZ Corp.</td>
+                    <td>Donation</td>
+                    <td>2024-12-15</td>
+                    <td><span style="color:green;">Completed</span></td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>ABC Foundation</td>
+                    <td>Message</td>
+                    <td>2024-12-14</td>
+                    <td><span style="color:orange;">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>Mark Lee</td>
+                    <td>DEF Corp.</td>
+                    <td>Donation</td>
+                    <td>2024-12-13</td>
+                    <td><span style="color:red;">Failed</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="admin-settings.html">Back to Settings</a>
+    </div>
+</body>
+</html>

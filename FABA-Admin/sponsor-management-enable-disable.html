@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enable/Disable Sponsor Accounts</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .content {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Enable/Disable Sponsor Accounts</h1>
+        <p>Manage sponsor accounts by enabling or disabling their access to the system.</p>
+
+        <!-- Table of Sponsors -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Sponsor Name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>johndoe@email.com</td>
+                    <td>Enabled</td>
+                    <td><button onclick="toggleStatus(this)">Disable</button></td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>janesmith@email.com</td>
+                    <td>Disabled</td>
+                    <td><button onclick="toggleStatus(this)">Enable</button></td>
+                </tr>
+                <!-- More sponsors can be added here -->
+            </tbody>
+        </table>
+
+        <a href="admin-settings.html">Back to Settings</a>
+    </div>
+
+    <script>
+        function toggleStatus(button) {
+            const row = button.closest('tr');
+            const statusCell = row.querySelector('td:nth-child(3)');
+            const currentStatus = statusCell.textContent.trim();
+            
+            if (currentStatus === 'Enabled') {
+                statusCell.textContent = 'Disabled';
+                button.textContent = 'Enable';
+            } else {
+                statusCell.textContent = 'Enabled';
+                button.textContent = 'Disable';
+            }
+        }
+    </script>
+</body>
+</html>

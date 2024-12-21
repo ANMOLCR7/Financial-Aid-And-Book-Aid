@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enable/Disable Accounts</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .content {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        .btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .enable {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .disable {
+            background-color: #f44336;
+            color: white;
+        }
+        .enable:hover {
+            background-color: #45a049;
+        }
+        .disable:hover {
+            background-color: #e53935;
+        }
+        .search-box {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .search-box input {
+            width: 70%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .search-box button {
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+        }
+        .search-box button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Enable/Disable Accounts</h1>
+        <p>Manage student accounts and enable or disable them.</p>
+
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Search by name or ID...">
+            <button onclick="searchAccount()">Search</button>
+        </div>
+
+        <table id="account-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example Account Entries -->
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td id="status-1">Enabled</td>
+                    <td>
+                        <button class="btn disable" onclick="toggleStatus(1)">Disable</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td id="status-2">Disabled</td>
+                    <td>
+                        <button class="btn enable" onclick="toggleStatus(2)">Enable</button>
+                    </td>
+                </tr>
+                <!-- More accounts can be added dynamically -->
+            </tbody>
+        </table>
+
+        <a href="admin-settings.html">Back to Settings</a>
+    </div>
+
+    <script>
+        function toggleStatus(accountId) {
+            const statusElement = document.getElementById('status-' + accountId);
+            const actionButton = statusElement.nextElementSibling.querySelector('button');
+
+            // Confirm action
+            const action = statusElement.textContent === 'Enabled' ? 'disable' : 'enable';
+            const confirmAction = confirm(`Are you sure you want to ${action} this account?`);
+
+            if (confirmAction) {
+                // Toggle account status
+                if (action === 'disable') {
+                    statusElement.textContent = 'Disabled';
+                    actionButton.textContent = 'Enable';
+                    actionButton.classList.remove('disable');
+                    actionButton.classList.add('enable');
+                } else {
+                    statusElement.textContent = 'Enabled';
+                    actionButton.textContent = 'Disable';
+                    actionButton.classList.remove('enable');
+                    actionButton.classList.add('disable');
+                }
+            }
+        }
+
+        function searchAccount() {
+            const searchValue = document.getElementById('search').value.toLowerCase();
+            const rows = document.querySelectorAll('#account-table tbody tr');
+            
+            rows.forEach(row => {
+                const name = row.cells[1].textContent.toLowerCase();
+                const id = row.cells[0].textContent;
+                if (name.includes(searchValue) || id.includes(searchValue)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

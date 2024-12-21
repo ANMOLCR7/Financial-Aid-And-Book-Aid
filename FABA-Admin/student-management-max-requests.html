@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Max Requests Per Student</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .content {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        input[type="number"] {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #007bff;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Set Max Requests Per Student</h1>
+        <p>Configure the maximum number of requests a student can make. Adjust the limits based on the current system needs.</p>
+
+        <!-- Display current limit -->
+        <p><strong>Current Limit: </strong><span id="current-limit">5</span> requests</p>
+
+        <!-- Input to set new limit -->
+        <input type="number" id="new-limit" placeholder="Enter new limit" min="1" max="100">
+
+        <!-- Save changes button -->
+        <button onclick="saveChanges()">Save Changes</button>
+
+        <!-- Feedback message -->
+        <p id="feedback" class="feedback"></p>
+
+        <!-- Back link -->
+        <a href="admin-settings.html" class="back-link">Back to Settings</a>
+    </div>
+
+    <script>
+        function saveChanges() {
+            const newLimit = document.getElementById('new-limit').value;
+            const feedback = document.getElementById('feedback');
+            const currentLimit = document.getElementById('current-limit').textContent;
+
+            // Validate the input
+            if (newLimit && newLimit > 0 && newLimit <= 100) {
+                // Confirm action
+                const confirmAction = confirm(`Are you sure you want to change the limit from ${currentLimit} to ${newLimit}?`);
+                if (confirmAction) {
+                    // Update the limit (simulate saving to the server)
+                    document.getElementById('current-limit').textContent = newLimit;
+                    feedback.textContent = `The limit has been successfully changed to ${newLimit} requests.`;
+                    feedback.className = "feedback success";
+                    document.getElementById('new-limit').value = ''; // Clear input
+                }
+            } else {
+                feedback.textContent = "Please enter a valid limit between 1 and 100.";
+                feedback.className = "feedback error";
+            }
+        }
+    </script>
+</body>
+</html>

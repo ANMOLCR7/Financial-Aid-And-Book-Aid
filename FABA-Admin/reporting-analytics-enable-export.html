@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enable Data Export</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .content {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+        form {
+            text-align: left;
+            margin-top: 20px;
+        }
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .status {
+            margin-top: 20px;
+            background: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Enable Data Export</h1>
+        <p>Allow admins to export data related to student and sponsor activities, reports, and requests.</p>
+
+        <!-- Data Export Form -->
+        <form action="/export-data" method="POST">
+            <label for="data-type">Select Data to Export:</label>
+            <select id="data-type" name="data-type" required>
+                <option value="student-data">Student Data</option>
+                <option value="sponsor-activity">Sponsor Activity</option>
+                <option value="financial-reports">Financial Reports</option>
+                <option value="book-aid">Book Aid Data</option>
+                <!-- Add more data types as needed -->
+            </select>
+
+            <label for="file-format">Select Export Format:</label>
+            <select id="file-format" name="file-format" required>
+                <option value="csv">CSV</option>
+                <option value="excel">Excel</option>
+                <option value="pdf">PDF</option>
+                <!-- Add more formats as needed -->
+            </select>
+
+            <button type="submit">Export Data</button>
+        </form>
+
+        <!-- Display Export Status -->
+        <div class="status">
+            <h3>Export Status</h3>
+            <p><strong>Data Exported:</strong> Student Data</p>
+            <p><strong>Format:</strong> CSV</p>
+            <p><strong>Status:</strong> Export successful. The file is ready for download.</p>
+        </div>
+
+        <a href="admin-settings.html">Back to Settings</a>
+    </div>
+</body>
+</html>

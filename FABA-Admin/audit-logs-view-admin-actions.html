@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Admin Actions</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .content {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 900px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        .btn {
+            padding: 8px 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>View Admin Actions</h1>
+        <p>Review a log of all actions taken by admins across the system for accountability and auditing purposes.</p>
+        
+        <!-- Admin Actions Log Table -->
+        <h3>Admin Actions Log</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Action</th>
+                    <th>Timestamp</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>admin1</td>
+                    <td>Updated Data Retention Policy</td>
+                    <td>2024-12-20 14:32</td>
+                    <td>Modified retention period for user account data.</td>
+                </tr>
+                <tr>
+                    <td>admin1</td>
+                    <td>Added New Sponsor</td>
+                    <td>2024-12-19 10:15</td>
+                    <td>Successfully added a new sponsor for student book donations.</td>
+                </tr>
+                <tr>
+                    <td>admin1</td>
+                    <td>Deleted Suspicious Account</td>
+                    <td>2024-12-18 09:45</td>
+                    <td>Removed an account due to suspicious activity.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="admin-settings.html">Back to Settings</a>
+    </div>
+</body>
+</html>

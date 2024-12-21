@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Request Policies</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 110vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .content {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+        form {
+            text-align: left;
+            margin-top: 20px;
+        }
+        select, input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .status {
+            margin-top: 20px;
+            background: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Set Request Policies</h1>
+        <p>Define policies for handling student requests, including time limits, types of requests, and approval processes.</p>
+
+        <!-- Request Policy Form -->
+        <form action="/set-request-policies" method="POST">
+            <label for="request-time-limit">Set Time Limit for Requests (in days):</label>
+            <input type="number" id="request-time-limit" name="request-time-limit" placeholder="Enter Time Limit" required min="1">
+
+            <label for="request-types">Select Request Type:</label>
+            <select id="request-types" name="request-types" required>
+                <option value="financial_aid">Financial Aid</option>
+                <option value="book_aid">Book Aid</option>
+                <option value="general_inquiry">General Inquiry</option>
+                <!-- Add more options if needed -->
+            </select>
+
+            <label for="approval-process">Approval Process:</label>
+            <select id="approval-process" name="approval-process" required>
+                <option value="manual">Manual Approval</option>
+                <option value="automatic">Automatic Approval</option>
+                <!-- Add more options if needed -->
+            </select>
+
+            <button type="submit">Save Policies</button>
+        </form>
+
+        <!-- Display Current Policies -->
+        <div class="status">
+            <h3>Current Request Policies</h3>
+            <p><strong>Time Limit for Requests:</strong> 15 days</p>
+            <p><strong>Request Type:</strong> Financial Aid</p>
+            <p><strong>Approval Process:</strong> Manual Approval</p>
+        </div>
+
+        <a href="admin-settings.html">Back to Settings</a>
+    </div>
+</body>
+</html>

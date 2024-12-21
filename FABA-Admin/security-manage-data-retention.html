@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Data Retention</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 105vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .content {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 900px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        .btn {
+            padding: 8px 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Manage Data Retention</h1>
+        <p>Set up policies for data retention, ensuring compliance with legal and regulatory requirements regarding data storage and deletion.</p>
+        
+        <!-- Data Retention Policy Table -->
+        <h3>Current Data Retention Settings</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data Type</th>
+                    <th>Retention Period</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>User Account Data</td>
+                    <td>5 years</td>
+                    <td><a href="#" class="btn">Edit</a></td>
+                </tr>
+                <tr>
+                    <td>Transaction Records</td>
+                    <td>7 years</td>
+                    <td><a href="#" class="btn">Edit</a></td>
+                </tr>
+                <tr>
+                    <td>System Logs</td>
+                    <td>1 year</td>
+                    <td><a href="#" class="btn">Edit</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Retention Policy Configuration -->
+        <h3>Configure Data Retention Policies</h3>
+        <form action="#" method="POST">
+            <label for="dataType">Select Data Type:</label>
+            <select id="dataType" name="dataType" required>
+                <option value="userAccount">User Account Data</option>
+                <option value="transactionRecords">Transaction Records</option>
+                <option value="systemLogs">System Logs</option>
+            </select>
+            <br><br>
+            <label for="retentionPeriod">Select Retention Period:</label>
+            <select id="retentionPeriod" name="retentionPeriod" required>
+                <option value="1">1 year</option>
+                <option value="3">3 years</option>
+                <option value="5">5 years</option>
+                <option value="7">7 years</option>
+                <option value="10">10 years</option>
+            </select>
+            <br><br>
+            <button type="submit" class="btn">Save Changes</button>
+        </form>
+
+        <a href="admin-settings.html">Back to Settings</a>
+    </div>
+</body>
+</html>

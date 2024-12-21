@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure Automated Reports</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .content {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+        form {
+            text-align: left;
+            margin-top: 20px;
+        }
+        input, select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .notification-info {
+            margin-top: 20px;
+            background: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Configure Automated Reports</h1>
+        <p>Set up automated reports that will be generated and sent to the admins or sponsors at defined intervals.</p>
+
+        <!-- Report Configuration Form -->
+        <form action="/configure-report" method="POST">
+            <label for="report-type">Select Report Type:</label>
+            <select id="report-type" name="report-type" required>
+                <option value="financial">Financial Report</option>
+                <option value="sponsor-activity">Sponsor Activity Report</option>
+                <option value="student-aid">Student Aid Report</option>
+                <!-- Add more report types as needed -->
+            </select>
+
+            <label for="recipient">Select Report Recipient:</label>
+            <select id="recipient" name="recipient" required>
+                <option value="admin">Admin</option>
+                <option value="sponsor">Sponsor</option>
+                <!-- You could dynamically populate this with a list of recipients -->
+            </select>
+
+            <label for="interval">Select Report Frequency:</label>
+            <select id="interval" name="interval" required>
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+                <!-- Add more frequency options as needed -->
+            </select>
+
+            <label for="message">Additional Instructions (Optional):</label>
+            <textarea id="message" name="message" placeholder="Enter any additional instructions here..." rows="4"></textarea>
+
+            <button type="submit">Configure Report</button>
+        </form>
+
+        <!-- Display Report Configuration Status -->
+        <div class="notification-info">
+            <h3>Report Configuration Status</h3>
+            <p>Report Type: <strong>Financial Report</strong></p>
+            <p>Recipient: <strong>Admin</strong></p>
+            <p>Frequency: <strong>Weekly</strong></p>
+            <p><strong>Additional Instructions:</strong> Generate report with the latest financial updates.</p>
+        </div>
+
+        <a href="admin-settings.html">Back to Settings</a>
+    </div>
+</body>
+</html>

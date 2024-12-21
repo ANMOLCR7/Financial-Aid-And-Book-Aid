@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Access Levels</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .content {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+        form {
+            text-align: left;
+            margin-top: 20px;
+        }
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .status {
+            margin-top: 20px;
+            background: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Manage Access Levels</h1>
+        <p>Configure the different access levels for admins, sponsors, and students. Control who can see and modify certain data.</p>
+
+        <!-- Access Levels Form -->
+        <form action="/set-access-levels" method="POST">
+            <label for="admin-access">Admin Access Level:</label>
+            <select id="admin-access" name="admin-access" required>
+                <option value="full">Full Access</option>
+                <option value="limited">Limited Access</option>
+                <option value="read-only">Read-Only</option>
+            </select>
+
+            <label for="sponsor-access">Sponsor Access Level:</label>
+            <select id="sponsor-access" name="sponsor-access" required>
+                <option value="full">Full Access</option>
+                <option value="limited">Limited Access</option>
+                <option value="read-only">Read-Only</option>
+            </select>
+
+            <label for="student-access">Student Access Level:</label>
+            <select id="student-access" name="student-access" required>
+                <option value="full">Full Access</option>
+                <option value="limited">Limited Access</option>
+                <option value="read-only">Read-Only</option>
+            </select>
+
+            <button type="submit">Save Access Levels</button>
+        </form>
+
+        <!-- Display Current Access Levels -->
+        <div class="status">
+            <h3>Current Access Levels</h3>
+            <p><strong>Admin Access:</strong> Full Access</p>
+            <p><strong>Sponsor Access:</strong> Limited Access</p>
+            <p><strong>Student Access:</strong> Read-Only</p>
+        </div>
+
+        <a href="admin-settings.html">Back to Settings</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approve/Reject Requests</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .content {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 600px;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .approve {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .reject {
+            background-color: #f44336;
+            color: white;
+        }
+        .approve:hover {
+            background-color: #45a049;
+        }
+        .reject:hover {
+            background-color: #e53935;
+        }
+        .search-box {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .search-box input {
+            width: 70%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .search-box button {
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+        }
+        .search-box button:hover {
+            background-color: #0056b3;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #007bff;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Approve/Reject Requests</h1>
+        <p>Manage requests made by students. Approve or reject requests for financial aid, books, etc.</p>
+
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Search by name, ID, or request type...">
+            <button onclick="searchRequest()">Search</button>
+        </div>
+
+        <table id="request-table">
+            <thead>
+                <tr>
+                    <th>Request ID</th>
+                    <th>Student Name</th>
+                    <th>Request Type</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example Requests -->
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>Financial Aid</td>
+                    <td id="status-1">Pending</td>
+                    <td>
+                        <button class="btn approve" onclick="changeStatus(1, 'approve')">Approve</button>
+                        <button class="btn reject" onclick="changeStatus(1, 'reject')">Reject</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td>Book Request</td>
+                    <td id="status-2">Pending</td>
+                    <td>
+                        <button class="btn approve" onclick="changeStatus(2, 'approve')">Approve</button>
+                        <button class="btn reject" onclick="changeStatus(2, 'reject')">Reject</button>
+                    </td>
+                </tr>
+                <!-- More requests can be added dynamically -->
+            </tbody>
+        </table>
+
+        <a href="admin-settings.html" class="back-link">Back to Settings</a>
+    </div>
+
+    <script>
+        function changeStatus(requestId, action) {
+            const statusElement = document.getElementById('status-' + requestId);
+            const actionButton = statusElement.nextElementSibling.querySelectorAll('button');
+
+            // Confirm action
+            const confirmAction = confirm(`Are you sure you want to ${action} this request?`);
+            if (confirmAction) {
+                // Change request status based on action
+                if (action === 'approve') {
+                    statusElement.textContent = 'Approved';
+                    actionButton[0].disabled = true; // Disable approve button
+                    actionButton[1].disabled = true; // Disable reject button
+                    actionButton[0].style.backgroundColor = '#8bc34a'; // Change button color
+                    actionButton[1].style.backgroundColor = '#e0e0e0'; // Disable reject button
+                } else {
+                    statusElement.textContent = 'Rejected';
+                    actionButton[0].disabled = true; // Disable approve button
+                    actionButton[1].disabled = true; // Disable reject button
+                    actionButton[1].style.backgroundColor = '#f44336'; // Change button color
+                    actionButton[0].style.backgroundColor = '#e0e0e0'; // Disable approve button
+                }
+            }
+        }
+
+        function searchRequest() {
+            const searchValue = document.getElementById('search').value.toLowerCase();
+            const rows = document.querySelectorAll('#request-table tbody tr');
+            
+            rows.forEach(row => {
+                const name = row.cells[1].textContent.toLowerCase();
+                const id = row.cells[0].textContent;
+                const requestType = row.cells[2].textContent.toLowerCase();
+                if (name.includes(searchValue) || id.includes(searchValue) || requestType.includes(searchValue)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enable Two-Factor Authentication</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .content {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+        form {
+            text-align: left;
+            margin-top: 20px;
+        }
+        label {
+            margin: 10px 0;
+            font-weight: bold;
+            display: block;
+        }
+        input[type="checkbox"], input[type="radio"] {
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Enable Two-Factor Authentication</h1>
+        <p>Enhance your account security by enabling two-factor authentication (2FA). Choose your preferred method for verification.</p>
+
+        <!-- Two-Factor Authentication Setup Form -->
+        <form action="/set-2fa" method="POST">
+            <label for="enable-2fa">Enable Two-Factor Authentication:</label>
+            <input type="checkbox" id="enable-2fa" name="enable-2fa" value="yes">
+
+            <label for="verification-method">Choose your 2FA verification method:</label>
+            <input type="radio" id="email-verification" name="verification-method" value="email" checked>
+            <label for="email-verification">Email verification (Receive a code via email)</label>
+
+            <input type="radio" id="auth-app-verification" name="verification-method" value="auth-app">
+            <label for="auth-app-verification">Authentication App (e.g., Google Authenticator)</label>
+
+            <label for="backup-codes">Enable backup codes for recovery:</label>
+            <input type="checkbox" id="backup-codes" name="backup-codes" value="yes">
+            <label for="backup-codes">Enable backup codes to access your account if you lose access to your 2FA method</label>
+
+            <button type="submit">Save Two-Factor Authentication Settings</button>
+        </form>
+
+        <a href="admin-settings.html">Back to Settings</a>
+    </div>
+</body>
+</html>

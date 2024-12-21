@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Notifications to Students</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .content {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 700px;
+        }
+        input, select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .notification-log {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Send Notifications to Students</h1>
+        <p>Send out notifications to students about upcoming events, deadlines, or any important updates.</p>
+
+        <!-- Notification Form -->
+        <form action="/send-notification" method="POST">
+            <input type="text" name="subject" placeholder="Notification Subject" required>
+            <textarea name="message" rows="4" placeholder="Write your notification message here" required></textarea>
+            
+            <!-- Recipient Selection -->
+            <select name="recipient_group" required>
+                <option value="all_students">All Students</option>
+                <option value="specific_group">Specific Group</option>
+                <option value="individual">Individual Student</option>
+            </select>
+
+            <!-- Date Picker -->
+            <input type="date" name="send_date" placeholder="Send Date" required>
+            
+            <button type="submit">Send Notification</button>
+        </form>
+
+        <!-- Notification Log -->
+        <div class="notification-log">
+            <h3>Sent Notifications:</h3>
+            <ul>
+                <li><strong>Subject:</strong> Important Update | <strong>Date:</strong> 2024-12-20 | <strong>Status:</strong> Sent</li>
+                <li><strong>Subject:</strong> Event Reminder | <strong>Date:</strong> 2024-12-18 | <strong>Status:</strong> Sent</li>
+                <!-- Example notifications -->
+            </ul>
+        </div>
+
+        <a href="admin-settings.html">Back to Settings</a>
+    </div>
+</body>
+</html>

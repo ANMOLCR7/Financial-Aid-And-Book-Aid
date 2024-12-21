@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Financial Aid Sponsor Activity</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .content {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>View Financial Aid Sponsor Activity</h1>
+        <p>Track the financial aid contributions made by sponsors towards students.</p>
+
+        <!-- Financial Aid Sponsor Activity Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Sponsor Name</th>
+                    <th>Contribution Amount (INR)</th>
+                    <th>Student Name</th>
+                    <th>Contribution Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="activityTableBody">
+                <!-- Example static row -->
+                <tr>
+                    <td>John Doe</td>
+                    <td>₹50,000</td>
+                    <td>Ravi Kumar</td>
+                    <td>2024-12-20</td>
+                    <td>Completed</td>
+                </tr>
+                <!-- More rows can be added dynamically here -->
+            </tbody>
+        </table>
+
+        <a href="admin-settings.html">Back to Settings</a>
+    </div>
+
+    <script>
+        // Example: Dynamically adding financial aid sponsor activity data (You can replace this with actual data from a server)
+        const financialAidActivities = [
+            { sponsorName: 'John Doe', amount: '₹50,000', studentName: 'Ravi Kumar', date: '2024-12-20', status: 'Completed' },
+            { sponsorName: 'Jane Smith', amount: '₹30,000', studentName: 'Amit Sharma', date: '2024-12-18', status: 'Completed' },
+            { sponsorName: 'Mark Johnson', amount: '₹40,000', studentName: 'Priya Gupta', date: '2024-12-16', status: 'Pending' }
+        ];
+
+        const activityTableBody = document.getElementById('activityTableBody');
+
+        // Loop through the financial aid activities and add rows to the table
+        financialAidActivities.forEach(activity => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${activity.sponsorName}</td>
+                <td>${activity.amount}</td>
+                <td>${activity.studentName}</td>
+                <td>${activity.date}</td>
+                <td>${activity.status}</td>
+            `;
+            activityTableBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>

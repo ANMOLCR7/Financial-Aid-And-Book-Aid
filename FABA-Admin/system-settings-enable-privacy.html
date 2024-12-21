@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enable Data Privacy Options</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .content {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+        form {
+            text-align: left;
+            margin-top: 20px;
+        }
+        label {
+            margin: 10px 0;
+            font-weight: bold;
+            display: block;
+        }
+        input[type="checkbox"], input[type="radio"] {
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Enable Data Privacy Options</h1>
+        <p>Enable features that allow students and sponsors to manage their data privacy preferences and consent.</p>
+
+        <!-- Privacy Settings Form -->
+        <form action="/set-privacy" method="POST">
+            <label for="data-sharing">Allow data sharing with third parties:</label>
+            <input type="checkbox" id="data-sharing" name="data-sharing" value="yes">
+
+            <label for="email-notifications">Receive email notifications:</label>
+            <input type="checkbox" id="email-notifications" name="email-notifications" value="yes">
+
+            <label for="personalized-content">Allow personalized content based on data:</label>
+            <input type="checkbox" id="personalized-content" name="personalized-content" value="yes">
+
+            <label for="data-retention">
+                Data Retention Preference:
+            </label>
+            <input type="radio" id="retain-data" name="data-retention" value="retain" checked>
+            <label for="retain-data">Retain data indefinitely</label>
+            <input type="radio" id="delete-data" name="data-retention" value="delete">
+            <label for="delete-data">Delete data after 1 year</label>
+
+            <button type="submit">Save Privacy Settings</button>
+        </form>
+
+        <a href="admin-settings.html">Back to Settings</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student Profiles</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .content {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 600px;
+        }
+        input, select {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 30%;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .search-box {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .search-box input {
+            width: 65%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .search-box button {
+            height:33px;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+        }
+        .search-box button:hover {
+            background-color: #0056b3;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #007bff;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Edit Student Profiles</h1>
+        <p>Here, you can edit student profiles. Update their contact details, statuses, and other necessary information.</p>
+
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Search by name or ID...">
+            <button onclick="searchStudent()">Search</button>
+        </div>
+
+        <div id="student-details" style="display: none;">
+            <h3>Student Information</h3>
+            <form id="edit-form">
+                <label for="student-name">Student Name:</label>
+                <input type="text" id="student-name" name="student-name" placeholder="Enter student's name" required><br><br>
+
+                <label for="student-id">Student ID:</label>
+                <input type="text" id="student-id" name="student-id" placeholder="Enter student ID" required><br><br>
+
+                <label for="student-email">Email:</label>
+                <input type="email" id="student-email" name="student-email" placeholder="Enter email" required><br><br>
+
+                <label for="student-phone">Phone:</label>
+                <input type="text" id="student-phone" name="student-phone" placeholder="Enter phone number"><br><br>
+
+                <label for="student-status">Status:</label>
+                <select id="student-status" name="student-status">
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                    <option value="suspended">Suspended</option>
+                </select><br><br>
+
+                <button type="button" onclick="saveChanges()">Save Changes</button>
+            </form>
+        </div>
+
+        <a href="admin-settings.html" class="back-link">Back to Settings</a>
+    </div>
+
+    <script>
+        function searchStudent() {
+            const searchValue = document.getElementById('search').value.toLowerCase();
+            // Sample data for student profiles, can be replaced with dynamic data
+            const students = [
+                { id: '1', name: 'John Doe', email: 'john@example.com', phone: '1234567890', status: 'active' },
+                { id: '2', name: 'Jane Smith', email: 'jane@example.com', phone: '0987654321', status: 'inactive' }
+            ];
+
+            const student = students.find(student => student.name.toLowerCase().includes(searchValue) || student.id.includes(searchValue));
+
+            if (student) {
+                // Display student details for editing
+                document.getElementById('student-details').style.display = 'block';
+                document.getElementById('student-name').value = student.name;
+                document.getElementById('student-id').value = student.id;
+                document.getElementById('student-email').value = student.email;
+                document.getElementById('student-phone').value = student.phone;
+                document.getElementById('student-status').value = student.status;
+            } else {
+                alert('Student not found');
+            }
+        }
+
+        function saveChanges() {
+            const studentName = document.getElementById('student-name').value;
+            const studentId = document.getElementById('student-id').value;
+            const studentEmail = document.getElementById('student-email').value;
+            const studentPhone = document.getElementById('student-phone').value;
+            const studentStatus = document.getElementById('student-status').value;
+
+            // Confirm changes
+            const confirmChanges = confirm(`Are you sure you want to save the changes for ${studentName}?`);
+            if (confirmChanges) {
+                // Save the changes (can be connected to the backend for actual data storage)
+                alert(`Changes saved for ${studentName} (ID: ${studentId})`);
+            }
+        }
+    </script>
+</body>
+</html>

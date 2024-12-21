@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Notifications to Sponsors</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .content {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+        form {
+            text-align: left;
+            margin-top: 20px;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .notification-info {
+            margin-top: 20px;
+            background: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Send Notifications to Sponsors</h1>
+        <p>Send important notifications to sponsors regarding their contributions, updates, or system changes.</p>
+
+        <!-- Notification Form -->
+        <form action="/send-notification" method="POST">
+            <label for="sponsor">Select Sponsor:</label>
+            <select id="sponsor" name="sponsor" required>
+                <option value="John Doe">John Doe</option>
+                <option value="Jane Smith">Jane Smith</option>
+                <option value="Mark Johnson">Mark Johnson</option>
+                <!-- Add more sponsor options dynamically if necessary -->
+            </select>
+
+            <label for="message">Notification Message:</label>
+            <textarea id="message" name="message" placeholder="Enter notification message here..." required rows="4"></textarea>
+
+            <button type="submit">Send Notification</button>
+        </form>
+
+        <!-- Display Notification Status -->
+        <div class="notification-info">
+            <h3>Notification Status</h3>
+            <p>Notification sent to: <strong>John Doe</strong></p> <!-- Replace with dynamic data -->
+            <p><strong>Message:</strong> Your recent contribution has been successfully processed. Thank you for your support!</p>
+        </div>
+
+        <a href="admin-settings.html">Back to Settings</a>
+    </div>
+</body>
+</html>

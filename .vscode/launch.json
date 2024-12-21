@@ -1,5 +1,5 @@
 {
-    "version": "0.2.0",
+    "version": "131.0.6778.140",
     "configurations": [
         {
             "type": "chrome",
@@ -9,7 +9,14 @@
             "preLaunchTask": "build",
             "webRoot": "${workspaceFolder}/demo/vertical-menu",
             "url": "http://localhost:8080",
-            "sourceMaps": true
+            "sourceMaps": true,
+            "userDataDir": "${workspaceFolder}/.vscode/chrome",
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/chrome",
+            "port": 8080,
+            "diagnosticLogging": true,
+            "console": "integratedTerminal",
+            "breakOnLoadStrategy": "onLoad",
+            "smartStep": true
         }
     ]
 }

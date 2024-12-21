@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Contribution Limits</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .content {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .current-limits {
+            margin-top: 20px;
+            background: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Set Contribution Limits</h1>
+        <p>Define the maximum contributions that sponsors can make towards students in INR.</p>
+
+        <!-- Form to Set Contribution Limits -->
+        <form id="contributionForm" action="/set-contribution-limit" method="POST" onsubmit="submitForm(event)">
+            <label for="max_contribution">Maximum Contribution (INR):</label>
+            <input type="number" id="max_contribution" name="max_contribution" placeholder="Enter Maximum Contribution (INR)" required min="1" onchange="updateContributionLimit()">
+            <button type="submit">Set Contribution Limit</button>
+        </form>
+
+        <!-- Display Current Contribution Limits -->
+        <div class="current-limits">
+            <h3>Current Contribution Limit</h3>
+            <p><strong>Maximum Contribution:</strong> ₹<span id="currentLimit">50,000</span></p>
+        </div>
+
+        <a href="admin-settings.html">Back to Settings</a>
+    </div>
+
+    <script>
+        // Function to update the displayed contribution limit dynamically
+        function updateContributionLimit() {
+            var newLimit = document.getElementById('max_contribution').value;
+            if (newLimit) {
+                document.getElementById('currentLimit').innerText = newLimit;
+            }
+        }
+
+        // Function to handle form submission
+        function submitForm(event) {
+            event.preventDefault(); // Prevent form submission for now
+
+            // Get the value entered by the user
+            var contribution = document.getElementById('max_contribution').value;
+
+            // You can process or send the data via AJAX here, for now, just log it to console
+            console.log("Form submitted with contribution: ₹" + contribution);
+
+            // Simulate successful submission (you can replace this with actual server interaction)
+            alert("Contribution limit set to ₹" + contribution);
+
+            // Optionally, you can reset the form after submission
+            document.getElementById('contributionForm').reset();
+            document.getElementById('currentLimit').innerText = contribution; // Update displayed limit
+        }
+    </script>
+</body>
+</html>
